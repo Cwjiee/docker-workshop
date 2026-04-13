@@ -2,7 +2,10 @@ import random
 
 def roll_dice(num_dice=1, sides=6):
     """Roll one or more dice and return the results."""
-    return [random.randint(1, sides) for _ in range(num_dice)]
+    results = []
+    for _ in range(num_dice):
+        results.append(random.randint(1, sides))
+    return results
 
 def main():
     print("Welcome to the Dice Roller!")
