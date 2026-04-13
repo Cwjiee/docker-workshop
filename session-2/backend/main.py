@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 import cowsay
 
@@ -15,7 +16,7 @@ app.add_middleware(
 @app.get("/")
 def root():
     message = cowsay.get_output_string("cow", "Hello from the Container!")
-    return {"message": message}
+    return PlainTextResponse(content=message)
 
 
 @app.get("/items")
